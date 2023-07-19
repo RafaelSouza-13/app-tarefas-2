@@ -7,7 +7,7 @@ Curso dois da formação em flutter da alura
 ### Aulas
 
 - [x] Formulário
-- [ ] Validação e Keyboard
+- [x] Validação e Keyboard
 - [ ] Navegação e Rotas
 - [ ] Conversa entre Widgets
 - [ ] Refinando nosso projeto
