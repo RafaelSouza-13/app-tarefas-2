@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../components/task.dart';
+import 'form.dart';
 
 class InicialScream extends StatefulWidget {
   const InicialScream({super.key});
@@ -9,24 +10,19 @@ class InicialScream extends StatefulWidget {
 }
 
 class _InicialScreamState extends State<InicialScream> {
-  bool opacidade = true;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.blue,
-        title: const Text(
-          'Tarefas',
-          style: TextStyle(
-            color: Colors.white,
+        appBar: AppBar(
+          backgroundColor: Colors.blue,
+          title: const Text(
+            'Tarefas',
+            style: TextStyle(
+              color: Colors.white,
+            ),
           ),
         ),
-      ),
-      body: AnimatedOpacity(
-        opacity: (opacidade) ? 1 : 0,
-        duration: const Duration(milliseconds: 400),
-        child: ListView(
+        body: ListView(
           children: const [
             Task(
               task: 'Aprendendo flutter',
@@ -68,19 +64,19 @@ class _InicialScreamState extends State<InicialScream> {
             ),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton.small(
-        backgroundColor: Colors.blue,
-        onPressed: () {
-          setState(() {
-            opacidade = !opacidade;
-          });
-        },
-        child: const Icon(
-          Icons.remove_red_eye,
-          color: Colors.white,
-        ),
-      ),
-    );
+        floatingActionButton: FloatingActionButton.small(
+          backgroundColor: Colors.blue,
+          onPressed: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const FormScreem(),
+                ));
+          },
+          child: const Icon(
+            Icons.add,
+            color: Colors.white,
+          ),
+        ));
   }
 }

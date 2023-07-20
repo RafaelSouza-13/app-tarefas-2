@@ -8,6 +8,6 @@ Curso dois da formação em flutter da alura
 
 - [x] Formulário
 - [x] Validação e Keyboard
-- [ ] Navegação e Rotas
+- [x] Navegação e Rotas
 - [ ] Conversa entre Widgets
 - [ ] Refinando nosso projeto

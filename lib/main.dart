@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'screens/inicial_scream.dart';
+import 'package:tarefas/screens/inicial_scream.dart';
+// import 'screens/inicial_scream.dart';
 
 void main() {
   runApp(const MyApp());

@@ -146,6 +146,7 @@ class _FormScreemState extends State<FormScreem> {
                               elevation: 150.0,
                             ),
                           );
+                          Navigator.pop(context);
                         }
                       },
                       child: const Text('Adicionar'),
