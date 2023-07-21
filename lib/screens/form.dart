@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:tarefas/data/task_inherited.dart';
 
 class FormScreem extends StatefulWidget {
-  const FormScreem({super.key});
+  const FormScreem({super.key, required this.taskContext});
 
+  final BuildContext taskContext;
   @override
   State<FormScreem> createState() => _FormScreemState();
 }
@@ -137,10 +139,14 @@ class _FormScreemState extends State<FormScreem> {
                     ),
                     ElevatedButton(
                       onPressed: () {
+                        TaskInherited.of(widget.taskContext)!.newTask(
+                            nameControler.text,
+                            imageControler.text,
+                            int.parse(difficultyControler.text));
                         if (_formKey.currentState!.validate()) {
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(
-                              content: Text('Printando nova tarefa'),
+                              content: Text('Ciando uma nova tarefa'),
                               backgroundColor: Colors.black87,
                               behavior: SnackBarBehavior.floating,
                               elevation: 150.0,

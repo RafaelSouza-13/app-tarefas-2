@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tarefas/screens/inicial_scream.dart';
+import 'package:tarefas/screens/inicial_screem.dart';
+import 'data/task_inherited.dart';
 // import 'screens/inicial_scream.dart';
 
 void main() {
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
       ),
-      home: const InicialScream(),
+      home: TaskInherited(child: const InicialScream()),
     );
   }
 }

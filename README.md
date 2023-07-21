@@ -9,5 +9,5 @@ Curso dois da formação em flutter da alura
 - [x] Formulário
 - [x] Validação e Keyboard
 - [x] Navegação e Rotas
-- [ ] Conversa entre Widgets
+- [x] Conversa entre Widgets
 - [ ] Refinando nosso projeto
