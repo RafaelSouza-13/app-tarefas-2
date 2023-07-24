@@ -24,6 +24,7 @@ class _InicialScreamState extends State<InicialScream> {
         ),
         body: ListView(
           children: TaskInherited.of(context)!.lista,
+          padding: const EdgeInsets.only(top: 8, bottom: 70),
         ),
         floatingActionButton: FloatingActionButton.small(
           backgroundColor: Colors.blue,

@@ -5,20 +5,28 @@ class Task extends StatefulWidget {
   final String task;
   final String photo;
   final int hardShip;
-  const Task(
+  Task(
       {required this.task,
       required this.photo,
       required this.hardShip,
       super.key});
 
+  int nivel = 0;
   @override
   State<Task> createState() => _TaskState();
 }
 
 class _TaskState extends State<Task> {
-  int nivel = 0;
   int maestria = 0;
   Color cor = Colors.blue;
+
+  bool isAsset() {
+    if (widget.photo.contains('http')) {
+      return false;
+    }
+    return true;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -62,14 +70,18 @@ class _TaskState extends State<Task> {
                       width: 72,
                       height: 100,
                       child: ClipRRect(
-                        borderRadius: const BorderRadius.only(
-                          topLeft: Radius.circular(8),
-                        ),
-                        child: Image.asset(
-                          widget.photo,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
+                          borderRadius: const BorderRadius.only(
+                            topLeft: Radius.circular(8),
+                          ),
+                          child: isAsset()
+                              ? Image.asset(
+                                  widget.photo,
+                                  fit: BoxFit.cover,
+                                )
+                              : Image.network(
+                                  widget.photo,
+                                  fit: BoxFit.cover,
+                                )),
                     ),
                     SizedBox(
                       width: 200,
@@ -94,10 +106,11 @@ class _TaskState extends State<Task> {
                         height: 60,
                         child: ElevatedButton(
                           onPressed: () {
-                            double valor = (nivel / widget.hardShip) / 10;
+                            double valor =
+                                (widget.nivel / widget.hardShip) / 10;
                             if (valor == 1) {
                               setState(() {
-                                nivel = 0;
+                                widget.nivel = 0;
                                 maestria++;
                                 if (maestria == 1) {
                                   cor = Colors.lime;
@@ -113,7 +126,7 @@ class _TaskState extends State<Task> {
                               });
                             } else {
                               setState(() {
-                                nivel++;
+                                widget.nivel++;
                               });
                             }
                           },
@@ -157,14 +170,14 @@ class _TaskState extends State<Task> {
                       width: 250,
                       child: LinearProgressIndicator(
                         value: (widget.hardShip > 0)
-                            ? (nivel / widget.hardShip) / 10
+                            ? (widget.nivel / widget.hardShip) / 10
                             : 1,
                         color: Colors.blue[900],
                         backgroundColor: Colors.white,
                       ),
                     ),
                     Text(
-                      'Nivel $nivel',
+                      'Nivel ${widget.nivel}',
                       style: const TextStyle(
                         fontSize: 18,
                         color: Colors.white,
